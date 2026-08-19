@@ -1,0 +1,1145 @@
+```html
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>Dairy Queen Price History 2022–2026 | Price Tracker</title>
+
+<meta name="description" content="Explore Dairy Queen price history from 2022 to 2026 with an interactive price chart, historical data, menu trends, and helpful DQ menu resources.">
+
+<meta name="robots" content="index,follow">
+
+<style>
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+}
+
+html{
+    scroll-behavior:smooth;
+}
+
+body{
+    font-family:Arial,Helvetica,sans-serif;
+    color:#252525;
+    background:#fff;
+    line-height:1.7;
+}
+
+a{
+    text-decoration:none;
+    color:inherit;
+}
+
+.container{
+    width:min(1120px,92%);
+    margin:auto;
+}
+
+/* HEADER */
+
+header{
+    background:linear-gradient(135deg,#151515,#3a1118);
+    color:#fff;
+}
+
+.nav{
+    height:75px;
+    display:flex;
+    align-items:center;
+    justify-content:space-between;
+}
+
+.logo{
+    font-size:22px;
+    font-weight:800;
+}
+
+.nav-link{
+    border:1px solid rgba(255,255,255,.5);
+    padding:9px 17px;
+    border-radius:30px;
+    font-size:14px;
+    font-weight:bold;
+}
+
+.hero{
+    min-height:570px;
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    text-align:center;
+    padding:70px 20px 100px;
+}
+
+.hero-content{
+    max-width:850px;
+}
+
+.badge{
+    display:inline-block;
+    font-size:12px;
+    letter-spacing:2px;
+    font-weight:bold;
+    padding:7px 14px;
+    border:1px solid rgba(255,255,255,.3);
+    border-radius:30px;
+    margin-bottom:20px;
+}
+
+h1{
+    font-size:clamp(42px,7vw,76px);
+    line-height:1.05;
+    letter-spacing:-3px;
+    margin-bottom:25px;
+}
+
+.hero p{
+    max-width:700px;
+    margin:auto;
+    color:#ddd;
+    font-size:18px;
+}
+
+.buttons{
+    margin-top:32px;
+    display:flex;
+    gap:13px;
+    justify-content:center;
+    flex-wrap:wrap;
+}
+
+.btn{
+    padding:13px 23px;
+    border-radius:7px;
+    font-weight:bold;
+}
+
+.btn-primary{
+    background:#e31837;
+}
+
+.btn-secondary{
+    border:1px solid rgba(255,255,255,.45);
+}
+
+/* SECTIONS */
+
+section{
+    padding:80px 0;
+}
+
+.section-label{
+    color:#e31837;
+    font-size:12px;
+    letter-spacing:2px;
+    font-weight:800;
+}
+
+h2{
+    font-size:clamp(30px,4vw,44px);
+    line-height:1.15;
+    margin:7px 0 25px;
+    letter-spacing:-1.5px;
+}
+
+.intro-text{
+    max-width:850px;
+    color:#666;
+}
+
+.intro-text p{
+    margin-bottom:17px;
+}
+
+/* STATS */
+
+.stats{
+    background:#f7f7f5;
+}
+
+.stat-grid{
+    display:grid;
+    grid-template-columns:repeat(4,1fr);
+    gap:18px;
+}
+
+.stat{
+    background:#fff;
+    padding:27px;
+    border:1px solid #e8e8e8;
+    border-radius:14px;
+}
+
+.stat small{
+    color:#777;
+    font-weight:bold;
+    text-transform:uppercase;
+}
+
+.stat strong{
+    display:block;
+    font-size:34px;
+    margin:4px 0;
+}
+
+.stat p{
+    color:#777;
+    font-size:14px;
+}
+
+/* TABLE */
+
+.table-wrap{
+    overflow-x:auto;
+}
+
+table{
+    width:100%;
+    min-width:600px;
+    border-collapse:collapse;
+}
+
+th{
+    background:#171717;
+    color:#fff;
+    text-align:left;
+    padding:16px 18px;
+}
+
+td{
+    padding:16px 18px;
+    border-bottom:1px solid #e8e8e8;
+}
+
+tr:hover td{
+    background:#f8f8f8;
+}
+
+.increase{
+    font-weight:bold;
+}
+
+.note{
+    color:#777;
+    font-size:13px;
+    margin-top:15px;
+}
+
+/* CHART */
+
+.chart-section{
+    background:#f7f7f5;
+}
+
+.chart-box{
+    background:#fff;
+    border:1px solid #e5e5e5;
+    border-radius:16px;
+    padding:30px;
+}
+
+.chart{
+    height:380px;
+    display:flex;
+    align-items:flex-end;
+    justify-content:space-around;
+    gap:15px;
+    border-bottom:2px solid #222;
+    padding:20px 10px 0;
+}
+
+.bar-wrapper{
+    height:100%;
+    width:100px;
+    display:flex;
+    flex-direction:column;
+    justify-content:flex-end;
+    align-items:center;
+}
+
+.price{
+    font-weight:bold;
+    margin-bottom:8px;
+}
+
+.bar{
+    width:60px;
+    background:#e31837;
+    border-radius:7px 7px 0 0;
+    cursor:pointer;
+    transition:height .5s,transform .2s;
+}
+
+.bar:hover{
+    transform:scaleX(1.08);
+    background:#bd102c;
+}
+
+.year{
+    margin-top:12px;
+    font-weight:bold;
+    font-size:14px;
+}
+
+/* CARDS */
+
+.cards{
+    display:grid;
+    grid-template-columns:repeat(3,1fr);
+    gap:20px;
+}
+
+.card{
+    border:1px solid #e5e5e5;
+    border-radius:15px;
+    padding:30px;
+    transition:.25s;
+}
+
+.card:hover{
+    transform:translateY(-5px);
+    box-shadow:0 15px 35px rgba(0,0,0,.08);
+}
+
+.icon{
+    font-size:35px;
+    margin-bottom:13px;
+}
+
+.card h3{
+    font-size:21px;
+    margin-bottom:9px;
+}
+
+.card p{
+    color:#666;
+    font-size:15px;
+    margin-bottom:18px;
+}
+
+.card a{
+    color:#e31837;
+    font-weight:bold;
+}
+
+/* CALCULATOR */
+
+.calculator{
+    background:#151515;
+    color:#fff;
+}
+
+.calculator-box{
+    max-width:700px;
+}
+
+.calculator p{
+    color:#bbb;
+}
+
+.input-row{
+    display:flex;
+    gap:12px;
+    margin-top:25px;
+}
+
+input{
+    flex:1;
+    padding:14px;
+    border:0;
+    border-radius:6px;
+    font-size:16px;
+}
+
+button{
+    border:0;
+    background:#e31837;
+    color:#fff;
+    padding:14px 22px;
+    border-radius:6px;
+    cursor:pointer;
+    font-weight:bold;
+}
+
+.result{
+    margin-top:22px;
+    font-size:20px;
+    font-weight:bold;
+}
+
+/* SOURCE BOX */
+
+.source-box{
+    margin-top:30px;
+    padding:25px;
+    background:#f7f7f5;
+    border-left:5px solid #e31837;
+}
+
+.source-box a{
+    color:#e31837;
+    font-weight:bold;
+}
+
+/* FOOTER */
+
+footer{
+    background:#101010;
+    color:#fff;
+    padding:45px 0 25px;
+}
+
+.footer-inner{
+    display:flex;
+    justify-content:space-between;
+    gap:30px;
+}
+
+.footer-inner p{
+    color:#999;
+    margin-top:5px;
+    font-size:14px;
+}
+
+.footer-link{
+    font-weight:bold;
+}
+
+.copyright{
+    border-top:1px solid #292929;
+    margin-top:30px;
+    padding-top:20px;
+    color:#777;
+    font-size:13px;
+}
+
+/* MOBILE */
+
+@media(max-width:800px){
+
+    .stat-grid{
+        grid-template-columns:repeat(2,1fr);
+    }
+
+    .cards{
+        grid-template-columns:1fr;
+    }
+
+    h1{
+        letter-spacing:-2px;
+    }
+
+    .chart{
+        height:320px;
+    }
+}
+
+@media(max-width:550px){
+
+    .nav{
+        padding:0 4%;
+    }
+
+    .nav-link{
+        font-size:11px;
+        padding:8px 11px;
+    }
+
+    .stat-grid{
+        grid-template-columns:1fr;
+    }
+
+    section{
+        padding:60px 0;
+    }
+
+    .chart-box{
+        padding:15px;
+    }
+
+    .bar{
+        width:42px;
+    }
+
+    .bar-wrapper{
+        width:55px;
+    }
+
+    .input-row{
+        flex-direction:column;
+    }
+
+    .footer-inner{
+        flex-direction:column;
+    }
+}
+</style>
+</head>
+
+<body>
+
+<!-- HEADER -->
+
+<header>
+
+<div class="container nav">
+
+    <div class="logo">
+        DQ Price Tracker
+    </div>
+
+    <a
+        class="nav-link"
+        href="https://dqmenuusa.com/"
+        target="_blank"
+        rel="noopener">
+        DQ MENU USA →
+    </a>
+
+</div>
+
+<div class="hero">
+
+    <div class="hero-content">
+
+        <div class="badge">
+            DAIRY QUEEN MENU RESEARCH
+        </div>
+
+        <h1>
+            Dairy Queen Price History
+            <br>
+            2022–2026
+        </h1>
+
+        <p>
+            Explore historical Dairy Queen price trends,
+            compare average prices by year, and understand
+            how menu pricing has changed over time.
+        </p>
+
+        <div class="buttons">
+
+            <a
+                class="btn btn-primary"
+                href="#history">
+                View Price History
+            </a>
+
+            <a
+                class="btn btn-secondary"
+                href="https://dqmenuusa.com/"
+                target="_blank"
+                rel="noopener">
+                Explore DQ Menu
+            </a>
+
+        </div>
+
+    </div>
+
+</div>
+
+</header>
+
+
+<!-- INTRO -->
+
+<section>
+
+<div class="container">
+
+    <div class="section-label">
+        PRICE OVERVIEW
+    </div>
+
+    <h2>
+        How Have Dairy Queen Prices Changed?
+    </h2>
+
+    <div class="intro-text">
+
+        <p>
+            Dairy Queen menu prices can change over time due to
+            ingredient costs, labor expenses, local market
+            conditions, restaurant operating costs, and other
+            factors.
+        </p>
+
+        <p>
+            Based on the historical reference figures displayed
+            on this page, the average selected-item price increased
+            from approximately <strong>$4.25 in 2022</strong> to
+            <strong>$5.32 in 2026</strong>.
+        </p>
+
+        <p>
+            That represents an approximate increase of
+            <strong>$1.07</strong>, or about
+            <strong>25.2%</strong> over the period.
+        </p>
+
+    </div>
+
+</div>
+
+</section>
+
+
+<!-- STATS -->
+
+<section class="stats">
+
+<div class="container">
+
+    <div class="stat-grid">
+
+        <div class="stat">
+            <small>2022</small>
+            <strong>$4.25</strong>
+            <p>Average reference price</p>
+        </div>
+
+        <div class="stat">
+            <small>2026</small>
+            <strong>$5.32</strong>
+            <p>Average reference price</p>
+        </div>
+
+        <div class="stat">
+            <small>Increase</small>
+            <strong>$1.07</strong>
+            <p>Average price difference</p>
+        </div>
+
+        <div class="stat">
+            <small>Percentage</small>
+            <strong>25.2%</strong>
+            <p>Approximate overall increase</p>
+        </div>
+
+    </div>
+
+</div>
+
+</section>
+
+
+<!-- PRICE HISTORY -->
+
+<section id="history">
+
+<div class="container">
+
+    <div class="section-label">
+        HISTORICAL DATA
+    </div>
+
+    <h2>
+        Dairy Queen Prices by Year
+    </h2>
+
+    <div class="table-wrap">
+
+        <table>
+
+            <thead>
+
+                <tr>
+                    <th>Year</th>
+                    <th>Average Price</th>
+                    <th>Change From Previous Year</th>
+                </tr>
+
+            </thead>
+
+            <tbody>
+
+                <tr>
+                    <td>2022</td>
+                    <td>$4.25</td>
+                    <td>—</td>
+                </tr>
+
+                <tr>
+                    <td>2023</td>
+                    <td>$4.48</td>
+                    <td class="increase">+$0.23</td>
+                </tr>
+
+                <tr>
+                    <td>2024</td>
+                    <td>$4.72</td>
+                    <td class="increase">+$0.24</td>
+                </tr>
+
+                <tr>
+                    <td>2025</td>
+                    <td>$5.02</td>
+                    <td class="increase">+$0.30</td>
+                </tr>
+
+                <tr>
+                    <td>2026</td>
+                    <td>$5.32</td>
+                    <td class="increase">+$0.30</td>
+                </tr>
+
+            </tbody>
+
+        </table>
+
+    </div>
+
+    <p class="note">
+        Note: Dairy Queen prices vary by restaurant, location,
+        item, size, promotions, and ordering method. These figures
+        are provided as historical reference data and should not
+        be treated as guaranteed prices at every location.
+    </p>
+
+</div>
+
+</section>
+
+
+<!-- INTERACTIVE CHART -->
+
+<section class="chart-section">
+
+<div class="container">
+
+    <div class="section-label">
+        INTERACTIVE CHART
+    </div>
+
+    <h2>
+        Dairy Queen Price Trend
+    </h2>
+
+    <div class="chart-box">
+
+        <div class="chart">
+
+            <div class="bar-wrapper">
+
+                <div class="price">$4.25</div>
+
+                <div
+                    class="bar"
+                    style="height:55%;"
+                    title="2022: $4.25">
+                </div>
+
+                <div class="year">2022</div>
+
+            </div>
+
+
+            <div class="bar-wrapper">
+
+                <div class="price">$4.48</div>
+
+                <div
+                    class="bar"
+                    style="height:62%;"
+                    title="2023: $4.48">
+                </div>
+
+                <div class="year">2023</div>
+
+            </div>
+
+
+            <div class="bar-wrapper">
+
+                <div class="price">$4.72</div>
+
+                <div
+                    class="bar"
+                    style="height:69%;"
+                    title="2024: $4.72">
+                </div>
+
+                <div class="year">2024</div>
+
+            </div>
+
+
+            <div class="bar-wrapper">
+
+                <div class="price">$5.02</div>
+
+                <div
+                    class="bar"
+                    style="height:78%;"
+                    title="2025: $5.02">
+                </div>
+
+                <div class="year">2025</div>
+
+            </div>
+
+
+            <div class="bar-wrapper">
+
+                <div class="price">$5.32</div>
+
+                <div
+                    class="bar"
+                    style="height:88%;"
+                    title="2026: $5.32">
+                </div>
+
+                <div class="year">2026</div>
+
+            </div>
+
+        </div>
+
+    </div>
+
+</div>
+
+</section>
+
+
+<!-- CALCULATOR -->
+
+<section class="calculator">
+
+<div class="container">
+
+    <div class="calculator-box">
+
+        <div class="section-label">
+            PRICE CALCULATOR
+        </div>
+
+        <h2>
+            Calculate the Price Increase
+        </h2>
+
+        <p>
+            Enter an older Dairy Queen menu price to estimate
+            what the same price would be after a 25.2% increase.
+        </p>
+
+        <div class="input-row">
+
+            <input
+                id="oldPrice"
+                type="number"
+                min="0"
+                step="0.01"
+                placeholder="Enter price, e.g. 4.25">
+
+            <button onclick="calculatePrice()">
+                Calculate
+            </button>
+
+        </div>
+
+        <div
+            class="result"
+            id="result">
+        </div>
+
+    </div>
+
+</div>
+
+</section>
+
+
+<!-- RESOURCES -->
+
+<section>
+
+<div class="container">
+
+    <div class="section-label">
+        DAIRY QUEEN RESOURCES
+    </div>
+
+    <h2>
+        Explore More Dairy Queen Information
+    </h2>
+
+    <div class="cards">
+
+        <article class="card">
+
+            <div class="icon">🍦</div>
+
+            <h3>
+                Dairy Queen Menu
+            </h3>
+
+            <p>
+                Explore detailed Dairy Queen menu information,
+                popular items, prices, treats, meals, and drinks.
+            </p>
+
+            <a
+                href="https://dqmenuusa.com/"
+                target="_blank"
+                rel="noopener">
+                View DQ Menu →
+            </a>
+
+        </article>
+
+
+        <article class="card">
+
+            <div class="icon">📊</div>
+
+            <h3>
+                Menu Price Research
+            </h3>
+
+            <p>
+                Historical pricing can help customers understand
+                how menu costs have changed over several years.
+            </p>
+
+            <a
+                href="https://dqmenuusa.com/"
+                target="_blank"
+                rel="noopener">
+                Explore More →
+            </a>
+
+        </article>
+
+
+        <article class="card">
+
+            <div class="icon">📍</div>
+
+            <h3>
+                Dairy Queen Locations
+            </h3>
+
+            <p>
+                Find useful information about Dairy Queen
+                restaurants, locations, hours, and menu options.
+            </p>
+
+            <a
+                href="https://dqmenuusa.com/"
+                target="_blank"
+                rel="noopener">
+                Find Locations →
+            </a>
+
+        </article>
+
+    </div>
+
+</div>
+
+</section>
+
+
+<!-- ABOUT -->
+
+<section>
+
+<div class="container">
+
+    <div class="section-label">
+        ABOUT THIS PROJECT
+    </div>
+
+    <h2>
+        Understanding Dairy Queen Menu Prices
+    </h2>
+
+    <div class="intro-text">
+
+        <p>
+            Dairy Queen operates restaurants in many different
+            markets, and menu prices are not necessarily identical
+            at every location. Franchise pricing, local costs,
+            promotions, taxes, and ordering channels can all affect
+            the final amount customers pay.
+        </p>
+
+        <p>
+            For that reason, historical price information is best
+            used as a general reference. Customers should check
+            their local restaurant for the most accurate current
+            price.
+        </p>
+
+    </div>
+
+
+    <div class="source-box">
+
+        <strong>
+            Looking for current Dairy Queen menu information?
+        </strong>
+
+        <p>
+            Visit
+            <a
+                href="https://dqmenuusa.com/"
+                target="_blank"
+                rel="noopener">
+                DQ MENU USA
+            </a>
+            for Dairy Queen menu information, prices, locations,
+            hours, and other helpful guides.
+        </p>
+
+    </div>
+
+</div>
+
+</section>
+
+
+<!-- FOOTER -->
+
+<footer>
+
+<div class="container">
+
+    <div class="footer-inner">
+
+        <div>
+
+            <strong>
+                DQ Price Tracker
+            </strong>
+
+            <p>
+                Dairy Queen price history and menu research.
+            </p>
+
+        </div>
+
+        <div>
+
+            <a
+                class="footer-link"
+                href="https://dqmenuusa.com/"
+                target="_blank"
+                rel="noopener">
+                DQMENUUSA.COM
+            </a>
+
+        </div>
+
+    </div>
+
+    <div class="copyright">
+        © 2026 DQ Price Tracker. Informational reference only.
+    </div>
+
+</div>
+
+</footer>
+
+
+<script>
+
+/* PRICE CALCULATOR */
+
+function calculatePrice(){
+
+    const input =
+        document.getElementById("oldPrice");
+
+    const result =
+        document.getElementById("result");
+
+    const oldPrice =
+        parseFloat(input.value);
+
+    if(isNaN(oldPrice) || oldPrice < 0){
+
+        result.textContent =
+            "Please enter a valid price.";
+
+        return;
+    }
+
+    const increase = oldPrice * 0.252;
+
+    const newPrice = oldPrice + increase;
+
+    result.innerHTML =
+        "Estimated price after a 25.2% increase: <strong>$"
+        + newPrice.toFixed(2)
+        + "</strong>";
+
+}
+
+
+/* ENTER KEY SUPPORT */
+
+document
+.getElementById("oldPrice")
+.addEventListener("keypress", function(event){
+
+    if(event.key === "Enter"){
+
+        calculatePrice();
+
+    }
+
+});
+
+
+/* SIMPLE SCROLL ANIMATION */
+
+const sections =
+    document.querySelectorAll("section");
+
+const observer =
+    new IntersectionObserver(
+        entries => {
+
+            entries.forEach(entry => {
+
+                if(entry.isIntersecting){
+
+                    entry.target.style.opacity = "1";
+                    entry.target.style.transform =
+                        "translateY(0)";
+
+                }
+
+            });
+
+        },
+        {
+            threshold:0.08
+        }
+    );
+
+
+sections.forEach(section => {
+
+    section.style.opacity = "0";
+    section.style.transform = "translateY(15px)";
+    section.style.transition =
+        "opacity .6s ease, transform .6s ease";
+
+    observer.observe(section);
+
+});
+
+</script>
+
+</body>
+</html>
+```
